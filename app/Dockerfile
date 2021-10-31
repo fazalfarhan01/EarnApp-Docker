@@ -6,7 +6,9 @@ VOLUME [ "/etc/earnapp" ]
 WORKDIR /app
 COPY src src
 RUN cp /app/src/install.sh /app/install && chmod a+x /app/install && \
-cp /app/src/myip.sh /usr/bin/myip && chmod a+x /usr/bin/myip && \
-bash /app/src/setup.sh
+cp /app/src/myip.sh /usr/bin/myip && chmod a+x /usr/bin/myip
 
-CMD ["bash", "/app/src/docker-entrypoint.sh"]
+RUN bash /app/src/setup.sh
+
+# CMD ["bash", "/app/src/docker-entrypoint.sh"]
+CMD [ "/lib/systemd/systemd" ]
