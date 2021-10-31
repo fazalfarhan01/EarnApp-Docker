@@ -1,5 +1,7 @@
 # EarnApp Docker
 ### Docker Image for [EarnApp](https://earnapp.com)
+Note: This is an unofficial build and comes with no warranty of any kind what so ever.
+By using this image you also agree to BrightData's terms and conditions.
 
 ## How to:
 ### _Non Compose_
