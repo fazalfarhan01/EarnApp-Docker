@@ -1,9 +1,7 @@
 version: "3.3"
 services:
   app:
-    build:
-      context: ./app
-    image: earnapp:beta-v0.1
+    image: fazalfarhan01/earnapp
     privileged: true
     volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup:ro
