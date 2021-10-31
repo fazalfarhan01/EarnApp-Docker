@@ -10,5 +10,5 @@ cp /app/src/myip.sh /usr/bin/myip && chmod a+x /usr/bin/myip
 
 RUN bash /app/src/setup.sh
 
-# CMD ["bash", "/app/src/docker-entrypoint.sh"]
-CMD [ "/lib/systemd/systemd" ]
+CMD ["bash", "/app/src/docker-entrypoint.sh"]
+# CMD [ "/lib/systemd/systemd" ]
