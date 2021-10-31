@@ -9,8 +9,7 @@ echo "
 
 "
 echo "Installing"
-mkdir /etc/earnapp
 chmod a+wr /etc/earnapp/
 touch /etc/earnapp/status
 chmod a+wr /etc/earnapp/status
-/tmp/earnapp install
+./earnapp install
