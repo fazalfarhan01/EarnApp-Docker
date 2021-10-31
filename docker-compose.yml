@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: ./app
+    image: earnapp:beta-v0.1
+    privileged: true
+    volumes:
+       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+       - ./etc:/etc/earnapp
