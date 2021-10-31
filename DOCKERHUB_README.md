@@ -36,3 +36,9 @@ services:
     ```BASH
     docker-compose exec app earnapp <YOUR COMMAND GOES HERE>
     ```
+
+## Like my work?
+Consider donating.
+- BTC: 1PdUFXmVUxy88NRPJ2RFuhyjUqMiJyZybR
+- ETH: 0x715810d3619b6831b3d4ff0465ec3523aceb20c6
+- PayPal: [@fazalfarhan01](https://www.paypal.me/fazalfarhan01)
