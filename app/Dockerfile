@@ -8,7 +8,6 @@ COPY src src
 RUN cp /app/src/install.sh /app/install && chmod a+x /app/install && \
 cp /app/src/myip.sh /usr/bin/myip && chmod a+x /usr/bin/myip
 
-RUN bash /app/src/setup.sh
+RUN bash /app/src/setup.sh && rm -r /app/src
 
-CMD ["bash", "/app/src/docker-entrypoint.sh"]
-# CMD [ "/lib/systemd/systemd" ]
+CMD [ "/lib/systemd/systemd" ]

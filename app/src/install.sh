@@ -8,6 +8,7 @@ echo "
 ╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░░░  ╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝
 
 "
+echo "Installing"
 mkdir /etc/earnapp
 chmod a+wr /etc/earnapp/
 touch /etc/earnapp/status
