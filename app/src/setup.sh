@@ -8,6 +8,7 @@ else
     file=armv7
 fi
 echo "Fetching $file"
-wget -c https://brightdata.com/static/earnapp/$file -O earnapp
-echo | md5sum earnapp
-chmod +x earnapp
+mkdir /download
+wget -c https://brightdata.com/static/earnapp/$file -O /download/earnapp
+echo | md5sum /download/earnapp
+chmod +x /download/earnapp

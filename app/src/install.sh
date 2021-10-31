@@ -9,6 +9,7 @@ echo "
 
 "
 echo "Installing"
+cp /download/earnapp earnapp
 chmod a+wr /etc/earnapp/
 touch /etc/earnapp/status
 chmod a+wr /etc/earnapp/status
