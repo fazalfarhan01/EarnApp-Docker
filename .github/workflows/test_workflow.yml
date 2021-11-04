@@ -17,14 +17,14 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-      - name: Build the docker image
-        run: docker build -t fazalfarhan01/earnapp:latest app
-
-      - name: Get version
-        run: echo $(docker run -it --rm fazalfarhan01/earnapp:latest /download/earnapp --version) > version
+      - name: Download EarnApp
+        run: wget -c https://brightdata.com/static/earnapp/bin_64 -O /earnapp
       
+      - name: Get version
+        run: echo $(./earnapp --version) > version
+
       - name: Remove escape sequences
-        run: sudo apt install dos2unix -y && dos2unix version
-        
-      - name: Tag Image
-        run: docker tag fazalfarhan01/earnapp:latest fazalfarhan01/earnapp:$(cat version)
+        run: sudo apt install dos2unix -y && dos2unix ./version
+
+      - name: Build the docker image
+        run: docker build -t fazalfarhan01/earnapp:latest -t fazalfarhan01/earnapp:$(cat ./version) app
