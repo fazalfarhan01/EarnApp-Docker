@@ -20,5 +20,11 @@ jobs:
       - name: Build the docker image
         run: docker build -t fazalfarhan01/earnapp:latest app
 
+      - name: Get version
+        run: echo $(docker run -it --rm fazalfarhan01/earnapp:latest /download/earnapp --version) > version
+      
+      - name: Remove escape sequences
+        run: sudo apt install dos2unix -y && dos2unix version
+        
       - name: Tag Image
-        run: docker build -t fazalfarhan01/earnapp:latest app && echo $(docker run -it --rm fazalfarhan01/earnapp:latest /download/earnapp --version) > version && sudo apt install dos2unix -y && dos2unix version && docker tag fazalfarhan01/earnapp:latest fazalfarhan01/earnapp:$(cat version)
+        run: docker tag fazalfarhan01/earnapp:latest fazalfarhan01/earnapp:$(cat version)
