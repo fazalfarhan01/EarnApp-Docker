@@ -3,6 +3,8 @@
 Note: This is an unofficial build and comes with no warranty of any kind what so ever.
 By using this image you also agree to BrightData's terms and conditions.
 
+## Also works on ARM processors (Raspberry Pi)
+
 ## How to:
 ### _Non Compose_
 1. Make a directory for earnapp data
