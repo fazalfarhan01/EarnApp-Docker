@@ -32,12 +32,9 @@ jobs:
       - name: Remove escape sequences
         run: sudo apt install dos2unix -y && dos2unix ./version
 
-      - name: Build the docker image
+      - name: Build & push
         run: |
-          docker buildx build \
+          docker buildx build --push \
           -t fazalfarhan01/earnapp-multiarch:latest \
           -t fazalfarhan01/earnapp-multiarch:$(cat ./version) \
           --platform linux/amd64,linux/arm/v7,linux/arm64 app
-      
-      - name: Push to Docker Hub
-        run: docker push fazalfarhan01/earnapp-multiarch --all-tags
