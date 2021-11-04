@@ -1,4 +1,4 @@
-name: Publish earnapp image to Docker Hub
+name: Test Workflow
 
 on:
   workflow_dispatch:
@@ -21,9 +21,4 @@ jobs:
         run: docker build -t fazalfarhan01/earnapp:latest app
 
       - name: Tag Image
-        run: docker build -t fazalfarhan01/earnapp:latest app && \
-        echo $(docker run -it --rm fazalfarhan01/earnapp:latest /download/earnapp --version) > version && \
-        sudo apt install dos2unix -y && \
-        dos2unix version && \
-        docker tag fazalfarhan01/earnapp:latest fazalfarhan01/earnapp:$(cat version) && \
-        rm version
+        run: docker build -t fazalfarhan01/earnapp:latest app && echo $(docker run -it --rm fazalfarhan01/earnapp:latest /download/earnapp --version) > version && sudo apt install dos2unix -y && dos2unix version && docker tag fazalfarhan01/earnapp:latest fazalfarhan01/earnapp:$(cat version)
