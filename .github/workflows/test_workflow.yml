@@ -18,7 +18,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Download EarnApp
-        run: wget -c https://brightdata.com/static/earnapp/bin_64 -O ./earnapp
+        run: wget -c https://brightdata.com/static/earnapp/bin_64 -O ./earnapp && chmod a+x ./earnapp
       
       - name: Get version
         run: echo $(./earnapp --version) > version
