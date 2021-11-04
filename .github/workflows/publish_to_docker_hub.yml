@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Publish Image to Docker Hub
 
 on:
   workflow_dispatch:
