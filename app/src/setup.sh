@@ -9,6 +9,6 @@ else
 fi
 echo "Fetching $file"
 mkdir /download
-wget -c --no-check-certificate https://brightdata.com/static/earnapp/$file -O /download/earnapp
+wget -cq --no-check-certificate https://brightdata.com/static/earnapp/$file -O /download/earnapp
 echo | md5sum /download/earnapp
 chmod +x /download/earnapp
