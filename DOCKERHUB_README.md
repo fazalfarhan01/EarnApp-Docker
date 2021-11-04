@@ -9,8 +9,8 @@ By using this image you also agree to BrightData's terms and conditions.
     - `mkdir $(HOME)/earnapp-data`
 2. Run the container
     - `docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v $(HOME)/earnapp-data:/etc/earnapp --name earnapp fazalfarhan01/earnapp`
-3. Start the install procedure
-    - `docker exec -it earnapp install`
+3. Get the UUID
+    - `docker exec -it earnapp showid`
 4. Copy and paste the app `UUID` in the [EarnApp Dashboard](https://earnapp.com/dashboard) 
 
 ### Compose
@@ -26,11 +26,6 @@ services:
        - ./etc:/etc/earnapp
 ```
 2. Run `docker-compose up -d`
-3. And then 
-    ```BASH
-    docker-compose exec app install
-    ```
-    This will install the app with persistant data.
 
 3. You can access the earnapp cli using the command
     ```BASH
