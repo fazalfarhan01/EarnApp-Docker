@@ -1,4 +1,4 @@
-name: Publish earnapp image to Docker Hub
+name: Test Workflow
 
 on:
   workflow_dispatch:
@@ -17,8 +17,17 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-      - name: Build the docker image
-        run: docker build -t fazalfarhan01/earnapp:latest -t fazalfarhan01/earnapp:$(date +%y%m%d) app
+      - name: Download EarnApp
+        run: wget -cq https://brightdata.com/static/earnapp/bin_64 -O ./earnapp && chmod a+x ./earnapp
+      
+      - name: Get version
+        run: echo $(./earnapp --version) > version
 
-      - name: Docker Push
-        run: docker push fazalfarhan01/earnapp
+      - name: Remove escape sequences
+        run: sudo apt install dos2unix -y && dos2unix ./version
+
+      - name: Build the docker image
+        run: docker build -t fazalfarhan01/earnapp:latest -t fazalfarhan01/earnapp:$(cat ./version) app
+      
+      - name: Push to Docker Hub
+        run: docker push fazalfarhan01/earnapp --all-tags
