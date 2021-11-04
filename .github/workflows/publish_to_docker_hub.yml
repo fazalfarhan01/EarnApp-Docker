@@ -1,4 +1,4 @@
-name: Publish Image to Docker Hub
+name: Publish Multiarch Image
 
 on:
   workflow_dispatch:
@@ -9,6 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Install buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
 
       - name: Login to Docker Hub
         env:
@@ -26,8 +32,9 @@ jobs:
       - name: Remove escape sequences
         run: sudo apt install dos2unix -y && dos2unix ./version
 
-      - name: Build the docker image
-        run: docker build -t fazalfarhan01/earnapp:latest -t fazalfarhan01/earnapp:$(cat ./version) app
-      
-      - name: Push to Docker Hub
-        run: docker push fazalfarhan01/earnapp --all-tags
+      - name: Build & push
+        run: |
+          docker buildx build --push \
+          -t fazalfarhan01/earnapp:latest \
+          -t fazalfarhan01/earnapp:$(cat ./version) \
+          --platform linux/amd64,linux/arm/v7,linux/arm64 app
