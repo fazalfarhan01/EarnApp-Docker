@@ -8,9 +8,9 @@ By using this image you also agree to BrightData's terms and conditions.
 ## How to:
 ### _Non Compose_
 1. Make a directory for earnapp data
-    - `mkdir $(HOME)/earnapp-data`
+    - `mkdir $HOME/earnapp-data`
 2. Run the container
-    - `docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v $(HOME)/earnapp-data:/etc/earnapp --name earnapp fazalfarhan01/earnapp`
+    - `docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v $HOME/earnapp-data:/etc/earnapp --name earnapp fazalfarhan01/earnapp`
 3. Get the UUID
     - `docker exec -it earnapp showid`
 4. Copy and paste the app `UUID` in the [EarnApp Dashboard](https://earnapp.com/dashboard) 
