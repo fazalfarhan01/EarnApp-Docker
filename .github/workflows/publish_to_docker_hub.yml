@@ -27,7 +27,7 @@ jobs:
         run: wget -cq https://brightdata.com/static/earnapp/bin_64 -O ./earnapp && chmod a+x ./earnapp
       
       - name: Get version
-        run: echo $(./earnapp --version) > version
+        run: echo $(./earnapp --version) > ./version
 
       - name: Remove escape sequences
         run: sudo apt install dos2unix -y && dos2unix ./version
