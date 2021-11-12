@@ -34,16 +34,9 @@ jobs:
       - name: Remove escape sequences
         run: sudo apt install dos2unix -y && dos2unix ./version
 
-      - name: Build & Push - Latest
+      - name: Build & Push - Bionic
         run: |
           docker buildx build --push \
-          -t fazalfarhan01/earnapp:latest \
-          -t fazalfarhan01/earnapp:$(cat ./version) \
-          --platform linux/amd64,linux/arm/v7 app
-
-      # - name: Build & Push - Bionic
-      #   run: |
-      #     docker buildx build --push \
-      #     -t fazalfarhan01/earnapp:bionic-latest \
-      #     -t fazalfarhan01/earnapp:bionic-$(cat ./version) \
-      #     --platform linux/amd64,linux/arm/v7 -f app/Dockerfile.bionic
+          -t fazalfarhan01/earnapp:bionic-latest \
+          -t fazalfarhan01/earnapp:bionic-$(cat ./version) \
+          --platform linux/amd64,linux/arm/v7 -f app/Dockerfile.bionic
