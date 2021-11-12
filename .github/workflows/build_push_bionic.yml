@@ -1,4 +1,4 @@
-name: Publish Multiarch Image
+name: Publish Bionic Multiarch Image
 
 on:
   workflow_dispatch:
