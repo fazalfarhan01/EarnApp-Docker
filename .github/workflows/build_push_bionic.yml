@@ -39,4 +39,5 @@ jobs:
           docker buildx build --push \
           -t fazalfarhan01/earnapp:bionic-latest \
           -t fazalfarhan01/earnapp:bionic-$(cat ./version) \
-          --platform linux/amd64,linux/arm/v7 -f app/Dockerfile.bionic
+          --platform linux/amd64,linux/arm/v7 -f Dockerfile.bionic app
+          
