@@ -39,4 +39,4 @@ jobs:
           docker buildx build --push \
           -t fazalfarhan01/earnapp:latest \
           -t fazalfarhan01/earnapp:$(cat ./version) \
-          --platform linux/amd64,linux/arm/v7 app
+          --platform linux/amd64 app
