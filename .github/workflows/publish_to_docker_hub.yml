@@ -40,3 +40,12 @@ jobs:
           -t fazalfarhan01/earnapp:latest \
           -t fazalfarhan01/earnapp:$(cat ./version) \
           --platform linux/amd64 app
+
+      - name: Update Docker Hub Readme
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: fazalfarhan01/earnapp
+          short-description: UNOFFICIAL image for BrightData's EarnApp.
+          readme-filepath: DOCKERHUB_README.md

@@ -1,9 +1,15 @@
 # EarnApp Docker
 ### Docker Image for [EarnApp](https://earnapp.com)
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=bbb533f6add9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
 Note: This is an unofficial build and comes with no warranty of any kind what so ever.
 By using this image you also agree to BrightData's terms and conditions.
 
-## Also works on ARM processors (Raspberry Pi)
+
+[Source Code](https://github.com/fazalfarhan01/earnapp_docker)
+
+~~## Also works on ARM processors (Raspberry Pi)~~
+
 
 ## How to:
 ### _Non Compose_
@@ -12,7 +18,7 @@ By using this image you also agree to BrightData's terms and conditions.
 2. Run the container
     - `docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v $HOME/earnapp-data:/etc/earnapp --name earnapp fazalfarhan01/earnapp`
 3. Get the UUID
-    - `docker exec -it earnapp showid`
+    - `docker exec -it earnapp earnapp showid`
 4. Copy and paste the app `UUID` in the [EarnApp Dashboard](https://earnapp.com/dashboard) 
 
 ### Compose
