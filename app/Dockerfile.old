@@ -1,4 +1,4 @@
-FROM jrei/systemd-ubuntu:bionic
+FROM jrei/systemd-ubuntu
 LABEL org.opencontainers.image.authors="admin@ffehost.com"
 
 VOLUME [ "/etc/earnapp" ]
