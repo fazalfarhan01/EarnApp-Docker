@@ -8,7 +8,7 @@ By using this image you also agree to BrightData's terms and conditions.
 
 [Source Code](https://github.com/fazalfarhan01/earnapp_docker)
 
-~~## Also works on ARM processors (Raspberry Pi)~~
+## Also works on ARM processors (Raspberry Pi(ARMv7)/ARM64)
 
 
 ## How to:

@@ -3,8 +3,8 @@ name: Publish Multiarch Image
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '10 3 * * *' # RUN @3:10 UTC Everyday
-    
+    - cron: "10 3 * * *" # RUN @3:10 UTC Everyday
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
 
       - name: Download EarnApp
         run: wget -cq https://brightdata.com/static/earnapp/bin_64 -O ./earnapp && chmod a+x ./earnapp
-      
+
       - name: Get version
         run: echo $(./earnapp --version) > ./version
 
