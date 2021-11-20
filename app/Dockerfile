@@ -5,7 +5,6 @@ LABEL org.opencontainers.image.authors="admin@ffehost.com"
 
 ENV container=docker
 ENV DEBIAN_FRONTEND=noninteractive
-RUN locale-gen en_US.UTF-8
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -29,6 +28,7 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
+RUN locale-gen en_US.UTF-8
 
 WORKDIR /app
 
