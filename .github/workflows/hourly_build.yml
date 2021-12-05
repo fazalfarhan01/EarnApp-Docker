@@ -1,9 +1,9 @@
-name: Publish Multiarch Image
+name: Publish Multiarch Image - Hourly
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 3 * * *" # RUN @3:10 UTC Everyday
+    - cron: "10 * * * *" # RUN every hour at 10th minu
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
       - name: Build & Push - Latest
         run: |
           docker buildx build --push \
-          -t fazalfarhan01/earnapp:latest \
+          -t fazalfarhan01/earnapp:hourly-latest \
           -t fazalfarhan01/earnapp:$(cat ./version) \
           --platform linux/amd64,linux/arm/v7,linux/arm64 app
 
