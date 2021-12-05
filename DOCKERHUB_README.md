@@ -10,6 +10,9 @@ By using this image you also agree to BrightData's terms and conditions.
 
 ## Also works on ARM processors (Raspberry Pi(ARMv7)/ARM64)
 
+## Available Tags
+1. `latest` - Built and updated daily
+2. `hourly-latest` - Built and updated every hour at UTC 10th minute.
 
 ## How to:
 ### _Non Compose_

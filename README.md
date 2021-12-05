@@ -6,6 +6,10 @@
 git clone https://github.com/fazalfarhan01/earnapp_docker.git
 ```
 
+## Available Tags
+1. `latest` - Built and updated daily
+2. `hourly-latest` - Built and updated every hour at UTC 10th minute.
+
 ## How to:
 ### _Non Compose_
 1. Make a directory for earnapp data
