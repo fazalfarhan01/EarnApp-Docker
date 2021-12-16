@@ -25,13 +25,27 @@ git clone https://github.com/fazalfarhan01/earnapp_docker.git
 ```YML
 version: "3.3"
 services:
-  app:
-    image: fazalfarhan01/earnapp
-    privileged: true
-    volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-       - ./etc:/etc/earnapp
+    app:
+        image: fazalfarhan01/earnapp
+        privileged: true
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+            - ./etc:/etc/earnapp
 ```
+
+Use the `lite` version if you don't want to run the container priviledged or having any of the issues [here](https://github.com/fazalfarhan01/EarnApp-Docker/issues/2).
+
+```YML
+version: "3.3"
+services:
+    app:
+        image: fazalfarhan01/earnapp:lite
+        volumes:
+            - ./etc:/etc/earnapp
+        environment:
+            EARNAPP_UUID: YOUR_NODE_ID_HERE
+```
+
 2. Run `docker-compose up -d`
 
 3. You can access the earnapp cli using the command

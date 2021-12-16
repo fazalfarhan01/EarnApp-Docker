@@ -1,18 +1,5 @@
 #!/bin/bash
 
-spinner(){
-    PID=$!
-    i=1
-    sp="/-\|"
-    echo -n "$1 "
-    while [ -d /proc/$PID ]
-    do
-        printf "\b${sp:i++%${#sp}:1}"
-        sleep 0.3s
-    done
-    printf "\b✓\n"
-}
-
 archs=`uname -m`
 if [ $archs = "x86_64" ]; then
     file=bin_64
@@ -30,7 +17,6 @@ else
     file=armv7
 fi
 mkdir /download
-wget -cq --no-check-certificate https://brightdata.com/static/earnapp/$file -O /download/earnapp > /dev/null &
-spinner "Downloading $file"
+wget -cq --no-check-certificate https://brightdata.com/static/earnapp/$file -O /download/earnapp
 echo | md5sum /download/earnapp
 chmod +x /download/earnapp

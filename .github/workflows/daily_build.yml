@@ -2,6 +2,7 @@ name: Publish Multiarch Image - Daily
 
 on:
   workflow_dispatch:
+  push:
   schedule:
     - cron: "10 3 * * *" # RUN @3:10 UTC Everyday
 
@@ -34,12 +35,18 @@ jobs:
       - name: Remove escape sequences
         run: sudo apt install dos2unix -y && dos2unix ./version
 
-      - name: Build & Push - Latest
+      - name: Build & Push - Latest Regular
         run: |
           docker buildx build --push \
           -t fazalfarhan01/earnapp:latest \
           -t fazalfarhan01/earnapp:$(cat ./version) \
-          --platform linux/amd64,linux/arm/v7,linux/arm64 app
+          --platform linux/amd64,linux/arm/v7,linux/arm64 build/app
+      - name: Build & Push - Latest Lite
+        run: |
+          docker buildx build --push \
+          -t fazalfarhan01/earnapp:lite \
+          -t fazalfarhan01/earnapp:lite-$(cat ./version) \
+          --platform linux/amd64,linux/arm/v7,linux/arm64 build/lite
 
       - name: Update Docker Hub Readme
         uses: peter-evans/dockerhub-description@v2
