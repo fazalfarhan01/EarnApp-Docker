@@ -1,9 +1,9 @@
 FROM debian:bullseye-slim AS builder
-RUN apt-get update && apt-get install dos2unix -y
+RUN apt-get update && apt-get install --no-install-recommends dos2unix wget -y
 WORKDIR /app
 COPY src src
 RUN dos2unix src/* && chmod a+x src/*.sh
-
+RUN bash /app/src/setup.sh
 
 
 FROM debian:bullseye-slim AS earnapp
@@ -38,12 +38,10 @@ RUN locale-gen en_US.UTF-8
 WORKDIR /app
 
 COPY --from=builder /app/src /app/src
-RUN mv /app/src/install.sh /usr/bin/install \
-    && mv /app/src/myip.sh /usr/bin/myip \
-    && mv /app/src/installer.service /etc/systemd/system/installer.service \
-    && systemctl enable installer.service
-
-RUN bash /app/src/setup.sh && rm -r /app/src
+RUN cp /app/src/install.sh /usr/bin/install \
+    && cp /app/src/installer.service /etc/systemd/system/installer.service \
+    && systemctl enable installer.service && rm -r /app/src
+COPY --from=builder /download/earnapp /download/earnapp
 
 VOLUME [ "/etc/earnapp" ]
 VOLUME ["/sys/fs/cgroup"]
