@@ -31,8 +31,6 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
-RUN locale-gen en_US.UTF-8
-
 WORKDIR /app
 
 COPY --from=builder /app/src /app/src
