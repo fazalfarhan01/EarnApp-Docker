@@ -16,7 +16,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    apt-utils locales software-properties-common systemd sudo iproute2 \
+    apt-utils locales python-setuptools python3-pip \
+    software-properties-common rsyslog systemd systemd-cron \
+    sudo iproute2 \
     && apt install -y libatomic1 \
     && rm -Rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
