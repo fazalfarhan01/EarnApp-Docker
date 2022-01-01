@@ -1,15 +1,9 @@
 version: "3.3"
 services:
   app:
-    image: fazalfarhan01/earnapp
+    build: build/debian
+    image: fazalfarhan01/earnapp:debian
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - ./etc:/etc/earnapp
-  lite:
-    build: build/lite
-    image: fazalfarhan01/earnapp:lite
-    volumes:
-      - ./etc:/etc/earnapp
-    environment:
-      EARNAPP_UUID: sdk-node-GET_YOUR_OWN_XD

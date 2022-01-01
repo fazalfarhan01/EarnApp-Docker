@@ -1,0 +1,13 @@
+[Unit]
+Description=EarnApp Installer
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=no
+ExecStart=/usr/bin/install
+User=root
+
+[Install]
+WantedBy=multi-user.target
