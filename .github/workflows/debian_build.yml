@@ -1,4 +1,4 @@
-name: Publish Multiarch Image - Daily
+name: Debian Build
 
 on:
   workflow_dispatch:
