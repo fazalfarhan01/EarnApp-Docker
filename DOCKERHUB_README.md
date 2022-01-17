@@ -13,6 +13,7 @@ By using this image you also agree to BrightData's terms and conditions.
 ## Available Tags
 1. `latest` - Built and updated daily
 2. `hourly-latest` - Built and updated every hour at UTC 10th minute.
+3. `lite` - A non-systemd image. (An already existing UUID is needed for this image.)
 
 ## How to:
 ### _Non Compose_
@@ -25,7 +26,7 @@ By using this image you also agree to BrightData's terms and conditions.
 4. Copy and paste the app `UUID` in the [EarnApp Dashboard](https://earnapp.com/dashboard) 
 
 ### Compose
-1. Make a new directory, create a file named `docker-compose.yml` and paste the following into it.
+    1. Make a new directory, create a file named `docker-compose.yml` and paste the following into it.
 ```YML
 version: "3.3"
 services:
@@ -37,6 +38,7 @@ services:
             - ./etc:/etc/earnapp
 ```
 
+#### Lite Version
 Use the `lite` version if you don't want to run the container priviledged or having any of the issues [here](https://github.com/fazalfarhan01/EarnApp-Docker/issues/2).
 
 ```YML
