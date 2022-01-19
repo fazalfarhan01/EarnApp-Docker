@@ -23,3 +23,5 @@ RUN bash /app/src/setup.sh && rm -r /app/src
 VOLUME [ "/etc/earnapp" ]
 
 CMD ["install"]
+
+HEALTHCHECK --interval=1m --timeout=10s --start-period=10s --retries=2 CMD myip && cat /etc/earnapp/status | grep enabled && exit 0 || exit 1
