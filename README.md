@@ -23,7 +23,7 @@ git clone https://github.com/fazalfarhan01/earnapp_docker.git
 ### Compose
 1. Make a new directory, create a file named `docker-compose.yml` and paste the following into it.
 ```YML
-version: "3.3"
+version: '3.3'
 services:
     app:
         image: fazalfarhan01/earnapp
@@ -36,7 +36,7 @@ services:
 Use the `lite` version if you don't want to run the container priviledged or having any of the issues [here](https://github.com/fazalfarhan01/EarnApp-Docker/issues/2).
 
 ```YML
-version: "3.3"
+version: '3.3'
 services:
     app:
         image: fazalfarhan01/earnapp:lite
