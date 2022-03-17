@@ -9,6 +9,8 @@ git clone https://github.com/fazalfarhan01/earnapp_docker.git
 ## Available Tags
 1. `latest` - Built and updated daily
 2. `hourly-latest` - Built and updated every hour at UTC 10th minute.
+3. `lite` - Use when you have problems with regular version.
+**Note**: `lite` version cannot generate it's own UUID and the same has to be provided as an environment variable.
 
 ## How to:
 ### _Non Compose_
@@ -16,6 +18,9 @@ git clone https://github.com/fazalfarhan01/earnapp_docker.git
     - `mkdir $HOME/earnapp-data`
 2. Run the container
     - `docker run -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v $HOME/earnapp-data:/etc/earnapp --name earnapp fazalfarhan01/earnapp`
+    
+    or if you are using the `lite` version
+    - `docker run -d -e EARNAPP_UUID='sdk-node-XXXXXXXXXXXXXXXXXXX'  --name earnapp fazalfarhan01/earnapp:lite`
 3. Get the UUID
     - `docker exec -it earnapp showid`
 4. Copy and paste the app `UUID` in the [EarnApp Dashboard](https://earnapp.com/dashboard) 
@@ -40,8 +45,6 @@ version: '3.3'
 services:
     app:
         image: fazalfarhan01/earnapp:lite
-        volumes:
-            - ./etc:/etc/earnapp
         environment:
             EARNAPP_UUID: YOUR_NODE_ID_HERE
 ```
