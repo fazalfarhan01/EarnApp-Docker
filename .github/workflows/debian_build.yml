@@ -2,7 +2,7 @@ name: Debian Build
 
 on:
   workflow_dispatch:
-  # push:
+  push:
   # schedule:
   #   - cron: "10 3 * * *" # RUN @3:10 UTC Everyday
 
