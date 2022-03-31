@@ -15,5 +15,6 @@ chmod a+wr /etc/earnapp/
 touch /etc/earnapp/status
 chmod a+wr /etc/earnapp/status
 printf $EARNAPP_UUID > /etc/earnapp/uuid
-earnapp start
+earnapp start &
+sleep 5
 earnapp run
