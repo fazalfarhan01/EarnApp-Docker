@@ -2,8 +2,8 @@ name: Publish Multiarch Image - Hourly
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "10 * * * *" # RUN every hour at 10th minu
+  # schedule:
+  #   - cron: "10 * * * *" # RUN every hour at 10th minu
 
 jobs:
   build:
